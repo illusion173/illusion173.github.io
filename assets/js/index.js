@@ -6,26 +6,26 @@ var Typer = {
   file: "",
   accessCount: 0,
   deniedCount: 0,
-  init: function () {
-    accessCountimer = setInterval(function () {
+  init: function() {
+    accessCountimer = setInterval(function() {
       Typer.updLstChr();
     }, 500);
-    $.get(Typer.file, function (data) {
+    $.get(Typer.file, function(data) {
       Typer.text = data;
       Typer.text = Typer.text.slice(0, Typer.text.length - 1);
     });
   },
 
-  content: function () {
+  content: function() {
     return $("#console").html();
   },
 
-  write: function (str) {
+  write: function(str) {
     $("#console").append(str);
     return false;
   },
 
-  addText: function (key) {
+  addText: function(key) {
     if (key.keyCode == 18) {
       Typer.accessCount++;
 
@@ -70,7 +70,7 @@ var Typer = {
     }
   },
 
-  updLstChr: function () {
+  updLstChr: function() {
     var cont = this.content();
 
     if (cont.substring(cont.length - 1, cont.length) == "|")
@@ -96,7 +96,7 @@ function replaceUrls(text) {
 }
 
 Typer.speed = 3;
-Typer.file = "clijoker.html";
+Typer.file = "hackingblogindex.html";
 Typer.init();
 
 var timer = setInterval("t();", 30);
